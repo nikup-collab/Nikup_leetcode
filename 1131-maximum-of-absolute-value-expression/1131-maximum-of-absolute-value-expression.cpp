@@ -1,7 +1,7 @@
 class Solution {
 public:
     int maxAbsValExpr(vector<int>& arr1, vector<int>& arr2) {
-            int maxans = 0;
+         int maxans = 0;
             int n = arr1.size();
             int max1 = INT_MIN, min1 = INT_MAX;
             for (int i = 0; i < n; i++)
@@ -36,7 +36,5 @@ public:
             }
             maxans = max(maxans, abs(max1 - min1));
             return maxans;
-        
-
     }
 };
