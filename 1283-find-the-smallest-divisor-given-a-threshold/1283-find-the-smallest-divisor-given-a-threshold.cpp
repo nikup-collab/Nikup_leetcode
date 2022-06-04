@@ -16,7 +16,7 @@ bool check(int num, vector<int> &nums, int a){
 class Solution {
 public:
     int smallestDivisor(vector<int>& nums, int threshold) {
-        sort(nums.begin(),nums.end());
+        //sort(nums.begin(),nums.end());
        long long  lo=1;
         //long longint ans;
         long long  hi=*max_element(nums.begin(),nums.end())+1;
