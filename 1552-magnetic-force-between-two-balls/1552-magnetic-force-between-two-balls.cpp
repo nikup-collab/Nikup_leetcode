@@ -35,10 +35,8 @@ public:
             else 
             right=mid-1;
         }
-        if(condition(right,position,m)) return right;
-        else
-            return left;
-        
+         if(condition(right, position,m)) return right;
+        else return left;
         
     }
 };
