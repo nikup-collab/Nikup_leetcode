@@ -1,22 +1,21 @@
-#include<vector>
+#include<bits/stdc++.h>
 class Solution {
 public:
     vector<int> twoSum(vector<int>& numbers, int target) {
-        vector<int> vect(2);
-        int start=0,end=numbers.size()-1;
+        vector<int> vect;
+        int start=0, end=numbers.size()-1;
+        
         while(start<end){
-            if((numbers[start]+numbers[end])>target)
-                end--;
-            else if((numbers[start]+numbers[end])<target)
-                start++;
-            else{
-                vect[0]=start+1;
-                vect[1]=end+1;
-                return vect;
+            if(numbers[start]+numbers[end]==target){
+                vect.push_back(start+1);
+                vect.push_back(end+1);
             }
-                
             
+            if(numbers[start]+numbers[end]>target) end--;
+            else
+                start++;
         }
-       return vect;
+        return vect;
+        
     }
 };
