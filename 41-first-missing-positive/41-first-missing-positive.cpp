@@ -1,15 +1,21 @@
+#include<bits/stdc++.h>
 class Solution {
 public:
     int firstMissingPositive(vector<int>& nums) {
-        int sm=1;
-        sort(begin(nums),end(nums));
+      map<int,int> m;
+        
         for(int i=0;i<nums.size();i++){
-            if(nums[i]==sm)
-                sm++;
-            else
-                continue;
-            
+            if(nums[i]>0){
+                m[nums[i]]++;
+            }
         }
-        return sm;
+        int k=1;
+        for(auto v : m){
+            if(v.first == k)
+                k++;
+            else
+                return k;
+        }
+        return k;
     }
 };
