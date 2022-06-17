@@ -2,31 +2,15 @@
 class Solution {
 public:
     vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
-       //creating result to store answwr
-        vector<int> res;
-        
-        //creati g hashmap to store frequencies
-        map<int,int>m;
-        
-    //stor efrequencies of number
-        for(int i=0;i<nums.size();i++)
-            m[nums[i]]++;
-        
+      vector<int> res;
         for(int i=0;i<nums.size();i++){
-            
-            int sum=0;
-            
-            for(auto v: m){
-                if(v.first==nums[i])
-                    break;
-                sum=sum+v.second;
-            }
-            res.push_back(sum);
-            
-        
-    }
+           int count=0;
+           for(int j= 0;j<nums.size();j++){
+               
+               if(nums[j]<nums[i]) count++;
+           }
+            res.push_back(count);
+       } 
         return res;
-        
-        
     }
 };
