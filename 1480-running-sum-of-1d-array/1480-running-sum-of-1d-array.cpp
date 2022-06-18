@@ -1,15 +1,16 @@
-int pf[1000];
+#include<bits/stdc++.h>
 class Solution {
 public:
     vector<int> runningSum(vector<int>& nums) {
-        vector<int>vect;
+        int n=nums.size();
+        vector<int> res;
+        int pf[n+1];
         pf[0]=0;
         
-        
-        for(int i=1;i<=nums.size();i++){
+        for(int i=1;i<=n;i++){
             pf[i]=pf[i-1]+nums[i-1];
-            vect.push_back(pf[i]);
+            res.push_back(pf[i]);
         }
-        return vect;
+        return res;
     }
 };
