@@ -6,7 +6,7 @@ public:
         int pfs[n];
         pf[0]=nums[0];
         pfs[n-1]=nums[n-1];
-        
+        //prefix sum approach
         for(int i=1;i<n;i++){
             pf[i]=pf[i-1]+nums[i];
             
