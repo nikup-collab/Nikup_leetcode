@@ -4,7 +4,7 @@ public:
     vector<long long> sumOfThree(long long num) {
        vector<long long> vect;
         long long lo=0, hi=num;
-        
+        /* binary search approach */
         while(lo<=hi){
             long long mid=lo+(hi-lo)/2;
             long long sum= (mid-1) +mid+ (mid+1);
