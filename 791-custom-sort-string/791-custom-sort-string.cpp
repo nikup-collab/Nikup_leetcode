@@ -10,6 +10,8 @@ public:
             m[s[i]]++;
         }
         
+        /*creating a hash map to check the order of string in the ans and concatenate them according to peroblem */
+        
         for(int i=0; i<order.size(); i++){
             
                 if(m.find(order[i]) != m.end()){
