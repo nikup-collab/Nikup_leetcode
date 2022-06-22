@@ -8,16 +8,13 @@ public:
         int k=0, i=0,j=0;
         
         while(i<m && j<n){
-            if(nums1[i]<nums2[j]){
+            if(nums1[i]<=nums2[j]){
                 vect[k++]=nums1[i++];
             }
             
-            else if(nums1[i]>nums2[j]) vect[k++]=nums2[j++];
+            else  vect[k++]=nums2[j++];
             
-            else{
-                vect[k++] = nums1[i++];
-                vect[k++]=nums2[j++];
-            }
+           
         }
         
         for(;j<n;j++){
