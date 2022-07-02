@@ -19,11 +19,9 @@ public:
             else if(abs(nums[i]-nums[j])>k) i++;
             else j++;
         }
-        int count=0;
+        int count=m.size();
         
-        for(auto v: m){
-            count++;
-        }
+        
         return count;
     }
 };
