@@ -1,18 +1,16 @@
-#include<bits/stdc++.h>
 class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {
-        map<int,int, greater<int>> m;
+        //heap
+        priority_queue<int, vector<int> , greater<int>> minh;
         
         for(int i=0;i<nums.size();i++){
-            m[nums[i]]++;
             
+            minh.push(nums[i]);
+            if(minh.size()>k){
+                minh.pop();
+            }
         }
-        int sum=0;
-        for(auto v: m){
-            sum = sum+v.second;
-            if(sum>=k) return v.first;
-        }
-        return -1;
+        return minh.top();
     }
 };
