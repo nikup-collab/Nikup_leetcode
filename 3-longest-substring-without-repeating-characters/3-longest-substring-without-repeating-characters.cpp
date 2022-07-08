@@ -13,7 +13,7 @@ public:
             
             m[l_ch]++;
             
-            if(m[l_ch]>1){
+            if(m[l_ch]>1){  //element is repeated so we reduce the size of substring and reach                                  to the point where the frequency of element is again 1
                 
                 ans=max(ans,j-i);
                 while(m[l_ch]>1){
