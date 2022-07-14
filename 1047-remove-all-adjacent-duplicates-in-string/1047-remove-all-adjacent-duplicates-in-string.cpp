@@ -12,7 +12,7 @@ public:
             i++;
         }
         
-        
+        // stack will be filled with only element whose adjacent are not equal
         
         if(stack.top()==s[i]){
             
