@@ -25,9 +25,9 @@ public:
             i++;
         }
         
-        int ans=count;
         
-        return  ans;
+        
+        return  count;
         
     }
 };
