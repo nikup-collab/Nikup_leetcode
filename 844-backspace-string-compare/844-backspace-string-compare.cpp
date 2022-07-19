@@ -27,21 +27,21 @@ public:
             j++;
         }
         
-        string str;
-        string str2;
+//         string str;
+//         string str2;
         
-        while(s1.size()>0){
-            str+=s1.top();
-            s1.pop();
-        }
+//         while(s1.size()>0){
+//             str+=s1.top();
+//             s1.pop();
+//         }
         
-        while(s2.size()>0){
-            str2+=s2.top();
-            s2.pop();
-        }
+//         while(s2.size()>0){
+//             str2+=s2.top();
+//             s2.pop();
+//         }
           
         
-        return str==str2;
+        return s1==s2;
         
     }
 };
