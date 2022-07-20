@@ -17,7 +17,7 @@ public:
         ListNode *temp2=node->next;
         node-> next= node->next->next;
         
-        delete temp2;
+       // delete temp2;
         
     }
 };
