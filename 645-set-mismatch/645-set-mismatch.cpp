@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<int> findErrorNums(vector<int>& nums) {
         
-        map<int,int>m;
+        unordered_map<int,int>m;
         
         for(int i=1; i<=nums.size();i++) m[i]=0;
         
