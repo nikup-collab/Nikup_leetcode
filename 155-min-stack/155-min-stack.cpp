@@ -1,3 +1,9 @@
+/* created two stack and maintain the values in one stack in minimum in one stack 
+also optimise it using store only until minimum eelement in minmum stack which reduce space complexity to some stack */
+
+
+
+
 class MinStack {
 public:
     stack<int>st;
