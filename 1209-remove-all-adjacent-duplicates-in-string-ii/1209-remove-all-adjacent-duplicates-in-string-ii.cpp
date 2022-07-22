@@ -1,5 +1,13 @@
+/* take a pair of character and its frequency and check if its value iss equal to k then pop it out from stack*/
+
+
+
+
+
+
+
 class Solution {
-public:
+public:                                                        
     string removeDuplicates(string s, int k) {
         int n=s.size();
         
