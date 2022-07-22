@@ -13,6 +13,7 @@ public:
     }
     
     void push(int x) {
+        //if element is minimum  then only push back in mst
         if(mst.empty() || x<=getMin()) mst.push(x);
         st.push(x);
     
@@ -20,6 +21,7 @@ public:
     }
     
     void pop() {
+        //if top element in minimum stack  is equal to minimum  value then it will pop out
         if(st.top()==getMin()) mst.pop();
         st.pop();
         
