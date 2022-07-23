@@ -12,23 +12,14 @@ class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
         
-        //first we find the lengh od=f linke dlist
+        ListNode *slow=head, *fast=head;
         
-        int n=0;
-        ListNode* temp=head;
-        
-        while(temp!=NULL){
-            ++n;
-            temp=temp->next;
-        }
-        
-        int half=n/2;
-        temp=head;  //we take back to head again
-        
-        while(half--){
-            temp=temp->next;
-        }
-        return temp;
+        while(fast!=NULL && fast->next!=NULL){
+            
+            slow=slow->next;
+            fast=fast->next->next;
+        } 
+            return slow;
         
     }
 };
