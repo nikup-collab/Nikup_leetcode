@@ -25,7 +25,7 @@ public:
             int size=q.size();
             
             for(int i=0;i<size;i++){
-                
+                //for every element i check whther left node or right node is present or  not in the binary tree
                 TreeNode *node=q.front();  //take front element as temperary node
                 q.pop();
                 if(node->left!=NULL) q.push(node->left);
