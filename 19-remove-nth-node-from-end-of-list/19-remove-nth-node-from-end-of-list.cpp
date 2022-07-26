@@ -25,9 +25,10 @@ public:
             front=front->next;
             tail=tail->next;
         }
+        ListNode *temp2=front->next;
         
-        front->next=front->next->next;
-        
+        front->next=temp2->next;
+        delete(temp2);
         return tempHead.next;
     }
 };
