@@ -11,21 +11,21 @@
  */
 class Solution {
 public:
-    vector<int>v;
+    map<int,int>m;
     void help(TreeNode *&root){
         if(root==NULL) return;
         
         help(root->left);
-        v.push_back(root->val);
+        m[(root->val)]++;
         help(root->right);
     }
     int findSecondMinimumValue(TreeNode* root) {
         
         help(root);
-        map<int,int>m;
-        for(int i=0;i<v.size();i++){
-            m[v[i]]++;
-        }
+        // map<int,int>m;
+        // for(int i=0;i<v.size();i++){
+        //     m[v[i]]++;
+        // }
        if(m.size()<2) return -1; 
         int i=0;
         int ans=0;
