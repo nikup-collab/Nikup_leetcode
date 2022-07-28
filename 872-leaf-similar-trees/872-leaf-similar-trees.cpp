@@ -12,28 +12,21 @@
 class Solution {
 public:
     vector<int>v1;
-    vector<int > v2;
+    vector<int>v2;
     
-    void help(TreeNode *&root){
+    void help(TreeNode *&root,vector<int>&v){
         
         if(root==NULL) return ;
         
-        help(root->left);
-       if(root->left ==NULL and root->right==NULL) v1.push_back(root->val);
-        help(root->right);
+        help(root->left,v);
+       if(root->left ==NULL and root->right==NULL) v.push_back(root->val);
+        help(root->right,v);
     }
     
-     void help2(TreeNode *&root){
-       // if(root->left==NULL and root->right==NULL) v2.push_back(root->val);
-        if(root==NULL) return ;
-        
-        help2(root->left);
-       if(root->left==NULL and root->right==NULL) v2.push_back(root->val);
-        help2(root->right);
-    }
+
     bool leafSimilar(TreeNode* root1, TreeNode* root2) {
-        help(root1);
-        help2(root2);
+        help(root1,v1);
+        help(root2,v2);
         
         if(v1.size()!=v2.size()) return false;
         
