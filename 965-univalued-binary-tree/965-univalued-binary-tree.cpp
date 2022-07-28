@@ -24,7 +24,7 @@ public:
     bool isUnivalTree(TreeNode* root) {
         help(root);
         
-         if(m.size()==1) return true;
-        return false;
+         return m.size()==1;
+        
     }
 };
