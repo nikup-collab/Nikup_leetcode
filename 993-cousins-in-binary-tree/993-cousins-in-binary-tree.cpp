@@ -28,8 +28,8 @@ public:
                 if(temp->val==x) foundx=true; //children are found
                 if(temp->val==y) foundy=true;
                 
-                if(temp->left && temp->right){ //check whether they are of same arent or not
-                    if(temp->left->val==x && temp->right->val==y || (temp->left->val==y && temp->right->val==x))  return false;
+                if(temp->left and temp->right){ //check whether they are of same arent or not
+                    if(temp->left->val==x and temp->right->val==y or (temp->left->val==y and temp->right->val==x))  return false;
                 }
                 
                 
