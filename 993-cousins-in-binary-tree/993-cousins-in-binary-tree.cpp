@@ -25,19 +25,19 @@ public:
                 
                 TreeNode *temp=q.front();
                 q.pop();
-                if(temp->val==x) foundx=true;
+                if(temp->val==x) foundx=true; //children are found
                 if(temp->val==y) foundy=true;
                 
-                if(temp->left && temp->right){
+                if(temp->left && temp->right){ //check whether they are of same arent or not
                     if(temp->left->val==x && temp->right->val==y || (temp->left->val==y && temp->right->val==x))  return false;
                 }
                 
                 
                 
-                if(temp->left!=NULL) q.push(temp->left);
+                if(temp->left) q.push(temp->left);
             
                 
-                if(temp->right!=NULL) q.push(temp->right);
+                if(temp->right) q.push(temp->right);
     
                 
             }
