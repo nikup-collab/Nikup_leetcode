@@ -16,7 +16,7 @@ public:
         int sum=0;
         
         while(head!=NULL){
-            sum*=2;
+            sum<<=1;
             sum+=head->val;
             head=head->next;
         }
