@@ -1,7 +1,7 @@
 class Solution {
 public:
-    int uniquePaths(int m, int n) {
-        int x=m-1;
+    int uniquePaths(int m, int n){
+         int x=m-1;
         int y=n-1;
         double ans=1;
         if(y<x){
