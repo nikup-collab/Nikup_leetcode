@@ -11,22 +11,10 @@
  */
 class Solution {
 public:
-    bool isSameTree(TreeNode* pr, TreeNode* qr) {
-        stack <pair<TreeNode*, TreeNode*>> s;
-        s.push({pr, qr});
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        if(p==NULL || q==NULL) return  p==q;
         
-        while(!s.empty()){
-            TreeNode *p= s.top().first, *q= s.top().second;
-            s.pop();
-            
-            if(!p && !q)
-                continue;
-            if(!p || !q || p->val != q->val)
-                return false;
-            
-            s.push({p->left, q->left});
-            s.push({p->right, q->right});
-        }
-        return true;
+        return (p->val==q->val) &&isSameTree(p->left, q->left) and isSameTree(p->right , q->right);
+        
     }
 };
