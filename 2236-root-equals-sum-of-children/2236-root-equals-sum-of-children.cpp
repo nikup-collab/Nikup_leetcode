@@ -12,17 +12,8 @@
 class Solution {
 public:
     bool checkTree(TreeNode* root) {
+        if(root==NULL) return false;
+        return root->val== (root->left->val + root->right->val);
         
-        if(root==NULL) return true;
-        
-        int childsum=0;
-        if(root->left!=NULL){
-            childsum+= root->left->val;
-        }
-        
-        if(root->right!=NULL){
-            childsum+=root->right->val;
-        }
-       return childsum==root->val; 
     }
 };
