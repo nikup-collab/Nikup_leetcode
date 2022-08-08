@@ -16,16 +16,15 @@ public:
         if(root==NULL){
             return new TreeNode(val);
         }
-        else{
-            
-            if(val < root->val){
+//         if root->val is smaller than it will implemented into left
+        else if(val < root->val)
                 root->left = insertIntoBST(root->left, val);
-            }
-             else{
+//         if root->val is greatet than root it will implement to left
+         else
                 root->right = insertIntoBST(root->right, val);
-            }
             
-        }
+            
+        
         return root;
     }
 };
