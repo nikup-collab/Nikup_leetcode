@@ -15,7 +15,7 @@ public:
         if(root1==NULL) return root2;
         if(root2==NULL) return root1;
         
-        // if(root1==NULL && root2==NULL) return NULL;
+         if(root1==NULL && root2==NULL) return NULL;
         // TreeNode *temp= new TreeNode(0);
         
         root1->val += root2->val;
