@@ -30,7 +30,7 @@ public:
         
         ListNode *slow=head, *fast=head, *prev=NULL;
         
-        while(fast!=NULL and fast->next!=NULL){
+        while(fast!=NULL && fast->next!=NULL){
             prev=slow;
             slow= slow->next;
             fast= fast->next->next;
