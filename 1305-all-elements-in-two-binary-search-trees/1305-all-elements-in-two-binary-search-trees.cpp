@@ -11,51 +11,37 @@
  */
 class Solution {
 public:
-    vector<int>v1;
-    vector<int> v2;
-    
-    //dfs for 1 tree
-    void help(TreeNode *root1){
-        if(root1==NULL) return;
+    void help(TreeNode *root, vector<int> &vect){
         
-        v1.push_back(root1->val);
-        help(root1->left);
-        help(root1->right);
-    }
-    
-    //dfs for 2 tree
-     void helper(TreeNode *root2){
-        if(root2==NULL) return;
+        if(root==NULL) return;
         
-        v2.push_back(root2->val);
-        helper(root2->left);
-        helper(root2->right);
+        help(root->left, vect);
+        vect.push_back(root->val);
+        help(root->right,vect);
     }
     vector<int> getAllElements(TreeNode* root1, TreeNode* root2) {
-        help(root1);
-        helper(root2);
-        vector<int> res;
-        int i=0,j=0;
-        int n=v1.size();
-        int m=v2.size();
-        sort(v1.begin(),v1.end());
-        sort(v2.begin(),v2.end());
+        vector<int>v1;
+        vector<int>v2;
+        help(root1,v1);
+        help(root2,v2);
         
-        while(i<n && j<m){
+        vector<int>answer;
+        
+        int i=0,j=0;
+        while(i<v1.size() and j<v2.size()){
             
             if(v1[i]<v2[j]){
-                res.push_back(v1[i]);
+                answer.push_back(v1[i]);
                 i++;
             }
             else{
-                res.push_back(v2[j]);
+                answer.push_back(v2[j]);
                 j++;
             }
         }
-        for(int k=i;k<n;k++) res.push_back(v1[k]);
-        for(int l=j;l<m;l++) res.push_back(v2[l]);
+        for(int k=i;k<v1.size();k++) answer.push_back(v1[k]);
+        for(int l=j;l<v2.size();l++) answer.push_back(v2[l]);
         
-        return res;
-        
+        return answer;
     }
 };
