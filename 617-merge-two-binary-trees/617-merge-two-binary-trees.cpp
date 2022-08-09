@@ -16,14 +16,14 @@ public:
         if(root2==NULL) return root1;
         
         if(root1==NULL and root2==NULL) return NULL;
-        TreeNode *temp= new TreeNode(0);
+        // TreeNode *temp= new TreeNode(0);
         
-        temp->val =root1->val+ root2->val;
+        root1->val =root1->val+ root2->val;
         
-        temp->left= mergeTrees(root1->left, root2->left);
-        temp->right= mergeTrees(root1->right, root2->right);
+        root1->left= mergeTrees(root1->left, root2->left);
+        root1->right= mergeTrees(root1->right, root2->right);
         
-        return temp;
+        return root1;
         
     }
 };
