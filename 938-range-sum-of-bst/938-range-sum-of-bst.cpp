@@ -11,25 +11,20 @@
  */
 class Solution {
 public:
-    vector<int>vect;
-    void helper(TreeNode *&root){
-        //dfs
+    int sum=0;
+    
+    void help(TreeNode *root,int high, int low){
+        
         if(root==NULL) return;
         
-        vect.push_back(root->val);
-        helper(root->left);
-        helper(root->right);
+        help(root->left,high,low);
+        if(root->val <= high and root->val >=low) sum+= root->val;
+        
+        help(root->right,high, low);
     }
     int rangeSumBST(TreeNode* root, int low, int high) {
+        help(root, high, low);
         
-        helper(root);
-        
-        int sum=0;
-        
-        for(int i=0;i<vect.size();i++){
-            
-            if(vect[i]>=low && vect[i]<=high) sum+=vect[i];
-        }
         return sum;
         
     }
