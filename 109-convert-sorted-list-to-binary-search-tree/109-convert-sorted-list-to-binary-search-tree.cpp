@@ -21,27 +21,34 @@
  */
 class Solution {
 public:
-    vector<int>vect;
-    TreeNode *help(int i, int j){
+    TreeNode * help(ListNode* head){
         
-        if(i>j) return nullptr;
+
+        if(head==nullptr) return NULL;
+
+
         
-        int mid=(i+j)/2;
-        TreeNode *temp = new TreeNode(vect[mid]);
+        ListNode *slow=head, *fast=head, *prev=NULL;
         
-        temp->left= help(i,mid-1);
-        temp->right =help(mid+1, j);
+        while(fast!=NULL and fast->next!=NULL){
+            prev=slow;
+            slow= slow->next;
+            fast= fast->next->next;
+        }
+        
+        
+        TreeNode *temp = new TreeNode(slow->val);
+       if(prev){
+           prev->next=NULL;
+           temp->left = help(head);
+           
+       }  
+        temp->right= help(slow->next);
         
         return temp;
     }
     TreeNode* sortedListToBST(ListNode* head) {
+        return help(head);
         
-        while(head!=NULL){
-            vect.push_back(head->val);
-            
-            head=head->next;
-        }
-        
-        return help( 0, vect.size()-1);
     }
 };
