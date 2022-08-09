@@ -11,52 +11,48 @@
  */
 class Solution {
 public:
-    unordered_map<int,int>mpp;
     
+    //inorder traversal
+    vector<int>vect;
+    int curr=0, maxm=INT_MIN, prev=0;
     void help(TreeNode *root){
         
         if(root==NULL) return;
         
         help(root->left);
-        if(mpp.find(root->val)==mpp.end()){
-            mpp[root->val]=1;
-        }
-        else mpp[root->val]++;
         
+        // if root->val == prev then curr will be increment
+        if(root->val== prev){
+            curr++;
+        }
+        else if(root->val!=prev) curr=1;
+        
+        // we check maximum with curr
+        
+        if(curr> maxm){
+            vect.clear();    //clear the previous ansewer
+            
+            vect.push_back(root->val);
+            maxm=curr;
+        }
+        else if(curr==maxm){
+            vect.push_back(root->val);
+        }
+        
+        
+        
+
+        prev=root->val;
         help(root->right);
     }
     
     
-    
+    //finding the mode using hash map
     vector<int> findMode(TreeNode* root) {
-        vector<int>result;
-        if(root==NULL) return result;
-        help(root);
         
-        vector<pair<int,int>>vect;
+        if(root==NULL) return vect;
+         help(root);
         
-        for(auto v: mpp){
-            vect.push_back({v.second, v.first});
-            
-            
-        }
-        
-        sort(vect.begin(), vect.end(), greater<pair<int,int>>());
-        
-        
-        if(vect.size()==1) {
-            result.push_back(vect[0].second);
-            return result;
-        }
-        result.push_back(vect[0].second);
-        for(int i=1;i<vect.size();i++){
-             if(vect[i].first != vect[i-1].first) 
-                break;
-            result.push_back(vect[i].second);
-            
-           
-        }
-        
-        return result;
+        return vect;
     }
 };
