@@ -15,7 +15,11 @@ public:
         
         int mid=(i+j)/2;
         TreeNode *temp = new TreeNode(nums[mid]);
+        
+        //divide the left subarray and insert in to left 
         if(i<mid) temp->left = help(nums, i, mid-1);
+        
+        // divide the right subarray and insert into right of temp
         if( mid<j) temp->right= help(nums, mid+1,j);
         
         return temp;
