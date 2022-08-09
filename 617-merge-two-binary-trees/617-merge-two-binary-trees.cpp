@@ -15,10 +15,10 @@ public:
         if(root1==NULL) return root2;
         if(root2==NULL) return root1;
         
-        if(root1==NULL and root2==NULL) return NULL;
+        // if(root1==NULL && root2==NULL) return NULL;
         // TreeNode *temp= new TreeNode(0);
         
-        root1->val =root1->val+ root2->val;
+        root1->val += root2->val;
         
         root1->left= mergeTrees(root1->left, root2->left);
         root1->right= mergeTrees(root1->right, root2->right);
