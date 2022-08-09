@@ -18,7 +18,7 @@ public:
         if(root==NULL) return;
         
         help(root->left,high,low);
-        if(root->val <= high and root->val >=low) sum+= root->val;
+        if(root->val <= high && root->val >=low) sum+= root->val;
         
         help(root->right,high, low);
     }
