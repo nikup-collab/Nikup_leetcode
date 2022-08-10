@@ -10,21 +10,15 @@
  * };
  */
 class Solution {
-public: 
-    bool go(TreeNode *root, long long int lval,  long long int rval){
+public:
+    bool help(TreeNode* root,long long mini, long long maxi){
         
         if(root==NULL) return true;
+        if(root->val <=mini || root->val >=maxi) return false;
         
-        bool lans= go(root->left, lval,root->val);
-        bool rans= go(root->right, root->val, rval);
-        bool myans= root->val> lval  and root->val<rval;
-        
-        return lans and rans and myans;
+        return help(root->left, mini, root->val) && help(root->right, root->val, maxi);
     }
     bool isValidBST(TreeNode* root) {
-        
-        return go(root, LONG_MIN, LONG_MAX);
+         return help(root, LONG_MIN, LONG_MAX);
     }
-    
-
 };
