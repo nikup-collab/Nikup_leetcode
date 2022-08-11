@@ -26,7 +26,7 @@ public:
         
     }
     TreeNode* sortedArrayToBST(vector<int>& nums) {
-        
+        if(nums.size()==0) return NULL;
         
         return help(nums, 0, nums.size()-1);
     }
