@@ -11,40 +11,21 @@
  */
 class Solution {
 public:
-    vector<int> vect;
-    unordered_map<int,int>mpp;
-    void help(TreeNode *root){
+    void findsum(TreeNode *root, int &curr_sum){
         
-        if(root==NULL) return;
+        if(root==nullptr) return;
         
-        help(root->left);
-        vect.push_back(root->val);
-        
-        help(root->right);
-    }
-    TreeNode *constr(TreeNode *root, vector<int> &pf){
-        if(root==NULL) return NULL;
-        int i =mpp[root->val];
-        root->val= pf[vect.size()]-pf[i];
-        
-        constr(root->left,pf);
-        constr(root->right,pf);
-        
-        return root;
+        findsum(root->right, curr_sum);
+        root->val = root->val+ curr_sum;
+        curr_sum=root->val;
+        findsum(root->left, curr_sum);
     }
     TreeNode* bstToGst(TreeNode* root) {
+         if(root==NULL) return nullptr;
+        int curr_sum=0;
         
-        help(root);
-        int n=vect.size();
-        vector<int>pf(n+1,0);
+        findsum(root, curr_sum);
         
-        for(int i=0;i<n;i++) mpp[vect[i]]=i;
-        
-        for(int i=1;i<=n;i++){
-            pf[i]=pf[i-1]+ vect[i-1];
-        }
-        
-        return constr(root ,pf);
-        
+        return root;
     }
 };
