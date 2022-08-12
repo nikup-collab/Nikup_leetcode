@@ -24,6 +24,6 @@ public:
         else
             return lowestCommonAncestor(root->right,p,q);
         
-        return NULL;
+//??return NULL;
     }
 };
