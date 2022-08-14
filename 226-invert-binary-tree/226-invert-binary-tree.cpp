@@ -16,6 +16,7 @@ public:
         
         if(root==NULL) return;
         TreeNode *first=root;
+        // swap two node
         swap(first->left,first->right);
         help(root->left);
           help(root->right);
