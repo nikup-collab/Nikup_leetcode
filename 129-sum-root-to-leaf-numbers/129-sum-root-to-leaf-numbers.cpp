@@ -19,7 +19,7 @@ public:
        if(slate.size()>0) curr_val= slate[slate.size()-1];
         curr_val = 10* curr_val + root->val;
         slate.push_back(curr_val);
-      if(root->left==NULL and root->right==NULL){
+      if(!root->left and !root->right){
               sum += slate[slate.size()-1];
         }
 
