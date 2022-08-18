@@ -11,32 +11,30 @@
  */
 class Solution {
 public:
-    long long sum=0;
-    int curr_val=0;
-    void help(TreeNode *root, vector<int> &slate){
+
+    int help(TreeNode *root, int curr_val){
         
-        if(root==NULL) return;
-       if(slate.size()>0) curr_val= slate[slate.size()-1];
+        if(root==NULL) return 0;
+       
         curr_val = 10* curr_val + root->val;
-        slate.push_back(curr_val);
+       // slate.push_back(curr_val);
       if(!root->left and !root->right){
-              sum += slate[slate.size()-1];
+              return  curr_val;
         }
 
         
-        help(root->left, slate);
-        help(root->right, slate);
+         return help(root->left, curr_val) + help(root->right, curr_val);
               
         
         
-        slate.pop_back();
+       // slate.pop_back();
     }
     int sumNumbers(TreeNode* root) {
         
-        vector<int> slate;
-        help(root, slate);
         
-        return sum;
+       return help(root, 0);
+        
+        
         
     }
 };
