@@ -2,7 +2,8 @@ class Solution {
 public:
     bool canConstruct(string ransomNote, string magazine) {
         
-        vector<int> count(26,0);
+        //vector<int> count(26,0);
+        int count[26]={0};
         
         for(auto ch : magazine){
             count[ch-'a']++;
