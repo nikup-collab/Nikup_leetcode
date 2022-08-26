@@ -2,7 +2,7 @@ bool cmp(const vector<int>& v1, const vector<int> &v2){
      return v1[1] < v2[1];
 }
 
-
+//greedy approach
 
 class Solution {
 public:
