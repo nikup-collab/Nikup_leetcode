@@ -1,29 +1,28 @@
+#include<bits/stdc++.h>
+unordered_map<int, priority_queue<int, vector<int>, greater<int>>> mpp;
 class Solution {
 public:
-    void solve(int i,int j,vector<vector<int>>& mat)
-    {
-        vector<int> hey;
-        int ti=i,tj=j;
-        while(ti<mat.size()&&tj<mat[0].size())
-        {
-            hey.push_back(mat[ti][tj]);ti++;tj++;
-        }
-        sort(hey.begin(),hey.end());
-        for(auto x : hey)
-        {
-            mat[i][j]=x;i++;j++;
-        }
-    }
     vector<vector<int>> diagonalSort(vector<vector<int>>& mat) {
-        if(mat.size()==1||mat[0].size()==1) return mat;
-        for(int i=0;i<mat[0].size();i++)
-        {
-            solve(0,i,mat);
+    
+    //trveresing the matrix
+    
+    for(int i=0;i<mat.size();i++){
+    
+    for(int j=0;j<mat[0].size();j++){
+         
+         mpp[i-j].push(mat[i][j]);
+    }
+    }
+    
+    
+    for(int i=0;i<mat.size();i++)
+        
+        for(int j=0;j<mat[0].size();j++){
+          mat[i][j] = mpp[i-j].top();
+          
+          mpp[i-j].pop();
         }
-        for(int i=1;i<mat.size();i++)
-        {
-            solve(i,0,mat);
-        }
+        
         return mat;
     }
 };
