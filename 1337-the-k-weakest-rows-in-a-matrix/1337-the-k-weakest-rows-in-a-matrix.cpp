@@ -1,29 +1,34 @@
+ bool cmp(pair<int,int>& a, pair<int,int>& b){
+            return(a.first == b.first) ? a.second < b.second : a.first<b.first;
+        };
+
+
 class Solution {
 public:
     vector<int> kWeakestRows(vector<vector<int>>& mat, int k) {
-        
-        priority_queue<pair<int,int>> maxh;
-        
+        unordered_map<int,int>mpp;
+//         storing the row no and the no of ones in each row row number is first and no of soldiers is second in pair
         for(int i=0;i<mat.size();i++){
-            
             int count=0;
-            
-            for(int j=0;j<mat[0].size();j++){
-                
-                if(mat[i][j]==1) count++;
+            for(int j=0;j<mat[i].size();j++){
+                if(mat[i][j]==1){
+                    count++;
+                }
             }
-            maxh.push({count,i});
-            
-            if(maxh.size()>k) maxh.pop();
+            mpp.insert({i,count});
         }
-        vector<int>vect;
+       vector<pair<int,int>>vect;
         
-        while(maxh.size()>0){
-            vect.push_back(maxh.top().second);
-            maxh.pop();
+        for(auto it : mpp){
+            vect.push_back({it.second,it.first});
         }
-        reverse(vect.begin(), vect.end());
         
-        return vect;
+        sort(vect.begin(), vect.end(),cmp);
+        vector<int>v;
+      
+        for(int i=0;i<k;i++){
+            v.push_back(vect[i].second);
+        }
+        return v;
     }
 };
