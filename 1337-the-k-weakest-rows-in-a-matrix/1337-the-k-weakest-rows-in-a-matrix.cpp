@@ -4,10 +4,11 @@ public:
         
         priority_queue<pair<int,int>> maxh;
         
-        for(int i=0;i<mat.size(); i++){
+        for(int i=0;i<mat.size();i++){
             
             int count=0;
-            for(int j=0;j< mat[0].size();j++){
+            
+            for(int j=0;j<mat[0].size();j++){
                 
                 if(mat[i][j]==1) count++;
             }
@@ -15,15 +16,14 @@ public:
             
             if(maxh.size()>k) maxh.pop();
         }
-        
         vector<int>vect;
-        while(!maxh.empty()){
+        
+        while(maxh.size()>0){
             vect.push_back(maxh.top().second);
             maxh.pop();
         }
-            reverse(vect.begin(), vect.end());
-        return vect;
-            
+        reverse(vect.begin(), vect.end());
         
+        return vect;
     }
 };
