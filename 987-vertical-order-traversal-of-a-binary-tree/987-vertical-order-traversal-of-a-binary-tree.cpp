@@ -23,7 +23,11 @@ void help(TreeNode *root, int level, int horizon, map<int, vector<pair<int,int>>
 
 
 
-
+/*    stored numbers in the way
+      -1  0,1
+      0   1,2  1,3
+      
+      */
 
 
 
@@ -42,7 +46,7 @@ public:
         
         for(auto v : freq_mpp){
             
-            sort(v.second.begin(), v.second.end());
+            sort(v.second.begin(), v.second.end());// if first number is same than sort function sorted using the second value
             
             vector<int>vect;
             for(auto it : v.second){
