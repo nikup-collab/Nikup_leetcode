@@ -15,8 +15,7 @@ public:
                 newInterval = intervals[i]; 
             }
 			// the new interval is in the range of the other interval, we have an overlap, so we must choose the min for start and max for end of interval 
-            else if(intervals[i][1] >= newInterval[0] || intervals[i][0] <= newInterval[1])
-            {
+            else {
                 newInterval[0] = min(intervals[i][0], newInterval[0]);
                 newInterval[1] = max(newInterval[1], intervals[i][1]);
 
