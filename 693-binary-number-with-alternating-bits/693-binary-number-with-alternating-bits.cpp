@@ -5,9 +5,8 @@ public:
         stack<int>vect;
         
         while(n){
-            if(!vect.empty()){
-                if(vect.top() == n%2) return false;
-            }
+            if(!vect.empty() and vect.top() == n%2) return false;
+            
              vect.push(n%2);
             n=n>>1;
         }
