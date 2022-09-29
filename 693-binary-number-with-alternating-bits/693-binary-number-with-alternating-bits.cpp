@@ -2,16 +2,19 @@ class Solution {
 public:
     bool hasAlternatingBits(int n) {
         
-        vector<int>vect;
+        stack<int>vect;
         
         while(n){
-             vect.push_back(n%2);
+            if(!vect.empty()){
+                if(vect.top() == n%2) return false;
+            }
+             vect.push(n%2);
             n=n>>1;
         }
         
-        for(int i=0;i<vect.size()-1;i++){
-            if(vect[i]== vect[i+1]) return false;
-        }
+        // for(int i=0;i<vect.size()-1;i++){
+        //     if(vect[i]== vect[i+1]) return false;
+        // }
         return true;
     }
 };
