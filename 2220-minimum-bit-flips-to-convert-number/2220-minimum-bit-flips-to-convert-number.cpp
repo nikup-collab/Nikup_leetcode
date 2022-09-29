@@ -8,13 +8,13 @@ public:
         while(start){
             arr.push_back(start%2);
             
-            start = start/2;
+            start = start>>1;
         }
         
          while(goal){
             vect.push_back(goal%2);
             
-            goal = goal/2;
+            goal = goal>>1;
         }
         int count=0;
         int n = min(arr.size(), vect.size());
